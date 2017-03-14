@@ -10,6 +10,10 @@ app.intent('HelloIntent', 'Hello', () => {
     return 'Hello from Alexia app';
 });
 
+app.intent('ToanIntent', 'Toan\'s daughter', () => {
+    return 'How is your daughter doing?';
+});
+
 // Create http server and start it
 app.createServer().start(() => {
     // Once started, save speechAssets into directory
