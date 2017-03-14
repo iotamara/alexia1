@@ -14,6 +14,22 @@ app.intent('ToanIntent', 'Toan\'s daughter', () => {
     return 'How is your daughter doing?';
 });
 
+app.intent('AzizIntent', 'Aziz\'s project', () => {
+    return 'How is your project going?';
+});
+
+app.intent('MattIntent', 'Matt\'s design thinking', () => {
+    return 'Do you like studying Design Thinking?';
+});
+
+app.intent('LilyIntent', 'Lily\'s party', () => {
+    return 'Did you have fun at the party on Friday?';
+});
+
+app.intent('DomenicIntent', 'Domenic\'s shoes', () => {
+    return 'Where did you get your cool shoes?';
+});
+
 // Create http server and start it
 app.createServer().start(() => {
     // Once started, save speechAssets into directory
