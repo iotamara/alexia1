@@ -1,11 +1,15 @@
 // Import alexia and create new app
 const alexia = require('alexia');
-const app = alexia.createApp();
+const app = alexia.createApp("Alexia1");
 
 /*
  * Register HelloIntent with one utterance: `Hello`
  * and static responseText: `Hello from Alexia app`
  */
+
+app.intent('HelloIntent', 'Hello', () => {
+    return 'Hello from Alexia app';
+});
 
 app.intent('SlotsIntent', 'I am {age:Number} years old', (slots) => {
     if(slots.age) {
@@ -15,13 +19,8 @@ app.intent('SlotsIntent', 'I am {age:Number} years old', (slots) => {
     }
 });
 
-
-app.intent('HelloIntent', 'Hello', () => {
-    return 'Hello from Alexia app';
-});
-
 app.intent('ToanIntent', 'Toan\'s daughter', () => {
-    return 'How is your daughter doing?';
+    return 'How is your daughter doing today?';
 });
 
 app.intent('AzizIntent', 'Aziz\'s project', () => {
