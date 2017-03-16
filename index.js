@@ -15,7 +15,7 @@ app.intent('SlotsIntent', 'I am {age:Number} years old', (slots) => {
     }
 });
 
-/*
+
 app.intent('HelloIntent', 'Hello', () => {
     return 'Hello from Alexia app';
 });
@@ -46,4 +46,3 @@ app.createServer().start(() => {
     app.saveSpeechAssets();
 console.log('Server started');
 });
-*/
