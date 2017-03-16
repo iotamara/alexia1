@@ -11,9 +11,9 @@ app.intent('HelloIntent', 'Hello', () => {
     return 'Hello from Alexia app';
 });
 
-app.intent('SlotsIntent', 'I am {age:Number} years old', (slots) => {
+app.intent('SlotsIntent', 'My name is {name:String} and I am {age:Number} years old', (slots) => {
     if(slots.age) {
-        return `Hello person, you are ${slots.age} years old`;
+        return `Hello ${slots.name}, you are ${slots.age} years old`;
     } else {
         return 'I did not catch your age';
     }
