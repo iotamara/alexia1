@@ -23,6 +23,11 @@ app.intent('ToanIntent', 'Toan\'s daughter', () => {
     return 'How is your daughter doing today?';
 });
 
+
+app.intent('MaxIntent', 'Max\'s whereabouts', () => {
+    return 'Hi Max, which country are you in today? We miss you!';
+});
+
 app.intent('AzizIntent', 'Aziz\'s project', () => {
     return 'How is your project going?';
 });
