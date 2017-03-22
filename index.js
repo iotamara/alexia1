@@ -49,7 +49,7 @@ app.intent('LookUpIntent', 'My name is {myname:Person} and I am {age:Number} yea
     if(slots.age) {
         return `Hello ${slots.myname}, you are ${slots.age} years young`;
     } else {
-        return 'I did not hear what you said';
+        return 'I did not hear what you said, please repeat';
     }
 });
 
@@ -57,7 +57,7 @@ app.intent('SlotsIntent', 'My name is {myname:Person} and I am {age:Number} year
     if(slots.age) {
         return `Hello ${slots.myname}, you are ${slots.age} years old`;
     } else {
-        return 'I did not hear what you said';
+        return 'I did not hear what you said, repeat please';
     }
 });
 
