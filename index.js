@@ -86,11 +86,11 @@ app.intent('DomenicIntent', 'Domenic\'s shoes', () => {
     return 'Where did you get your cool shoes?';
 });
 
-const intentA = app.intent('intentA', 'clear my calendar for {date:Date}', (slots) => {
+const intentA = app.intent('intentA', 'add {myname:Person} to the list', (slots) => {
     return {
-        text: 'Are you sure you want to clear your calendar?',
+        text: 'Are you sure you want to add?',
         attrs: {
-            date: slots.date
+            date: slots.myname
         },
         end: false
     };
@@ -99,11 +99,11 @@ const intentA = app.intent('intentA', 'clear my calendar for {date:Date}', (slot
 // Or use built-in amazon intents. See: `examples/built-in-intents.js`
 const intentB = app.intent('intentB', 'yes', (slots, attrs) => {
     // Clear calendar for date `attrs.date` here
-    return 'Your calendar has been cleared';
+    return 'The name has been added';
 });
 
 app.intent('intentC', 'no', () => {
-    return 'Your calendar was not modified';
+    return 'he name has not been added';
 });
 
 app.action({
@@ -114,7 +114,7 @@ app.action({
 app.action({
     from: intentA,
     to: intentB,
-    if: (slots, attrs) => attrs.date, // Note: date should be validated here
+    if: (slots, attrs) => attrs.myname, // Note: date should be validated here
     fail: (slots, attrs) => 'Sorry, your command is invalid'
 });
 
