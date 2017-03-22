@@ -88,7 +88,7 @@ app.intent('DomenicIntent', 'Domenic\'s shoes', () => {
 
 const intentA = app.intent('intentA', 'clear my calendar for {date:Date}', (slots) => {
     return {
-        text: 'Are you sure you want to clear your calendar ?' + ${slots.Date} + '?',
+        text: 'Are you sure you want to clear your calendar?',
         attrs: {
             date: slots.date
         },
