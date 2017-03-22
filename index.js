@@ -7,8 +7,50 @@ const app = alexia.createApp("Alexia1");
  * and static responseText: `Hello from Alexia app`
  */
 
+const jsonSME = {
+
+    "smes" : [
+        {
+            "name" : "John Fremont",
+            "expertise" : "AI"
+        },
+        {
+            "name" : "Erik Pupo",
+            "expertise" : "Block Chain"
+        }
+    ]
+};
+
+const jsonProject = {
+
+    "projects" : [
+        {
+            "name" : "PSEG",
+            "date" : "April 20, 2017",
+            "venue" : "Board Room",
+            "owner" : "Lily",
+            "numAttendees" : "12 to 15"
+        },
+        {
+            "name" : "The Hartford",
+            "date" : "March 31, 2017",
+            "venue" : "The Garage",
+            "owner" : "Matt",
+            "numAttendees" : "15 to 25"
+        }
+    ]
+};
+
 app.intent('HelloIntent', 'Hello', () => {
     return 'Hello from Alexia app';
+});
+
+app.intent('LookUpIntent', 'My name is {myname:Person} and I am {age:Number} years old', (slots) => {
+    if(slots.age) {
+        return `Hello ${slots.myname}, you are ${slots.age} years old`;
+    } else {
+        return 'I did not hear what you said';
+    }
 });
 
 app.intent('SlotsIntent', 'My name is {myname:Person} and I am {age:Number} years old', (slots) => {
@@ -48,5 +90,12 @@ app.intent('DomenicIntent', 'Domenic\'s shoes', () => {
 app.createServer().start(() => {
     // Once started, save speechAssets into directory
     app.saveSpeechAssets();
-console.log('Server started');
+    app.onStart(() => {
+        return 'Welcome, say Start Look Up to get started';
+    });
+    app.onEnd(() => {
+        return 'See you later!';
+    });
+
+    console.log('Server started');
 });
