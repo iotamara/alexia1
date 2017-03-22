@@ -118,6 +118,10 @@ app.action({
     fail: (slots, attrs) => 'Sorry, this is not working right now'
 });
 
+app.action({
+    from: 'intentA',
+    to: 'intentC'
+});
 
 // Create http server and start it
 app.createServer().start(() => {
