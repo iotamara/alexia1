@@ -90,7 +90,7 @@ const intentA = app.intent('intentA', 'add {myname:Person} to the list', (slots)
     return {
         text: 'Are you sure you want to add?',
         attrs: {
-            date: slots.myname
+            myname: slots.myname
         },
         end: false
     };
