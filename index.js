@@ -88,7 +88,7 @@ app.intent('DomenicIntent', 'Domenic\'s shoes', () => {
 
 const intentA = app.intent('intentA', 'add {myname:Person} to the list', (slots) => {
     return {
-        text: 'Are you sure you want to add?',
+        text: `Are you sure you want to add ${slots.myname}?`,
         attrs: {
             myname: slots.myname
         },
@@ -103,7 +103,7 @@ const intentB = app.intent('intentB', 'yes', (slots) => {
 });
 
 app.intent('intentC', 'no', () => {
-    return 'he name has not been added';
+    return 'the name has not been added';
 });
 
 app.action({
@@ -114,8 +114,8 @@ app.action({
 app.action({
     from: intentA,
     to: intentB,
-    //if: (slots, attrs) => attrs.myname, // Note: date should be validated here
-    //fail: (slots, attrs) => 'Sorry, your command is invalid'
+    if: (slots, attrs) => attrs.myname, // Note: date should be validated here
+    fail: (slots, attrs) => 'Sorry, this is not working right now'
 });
 
 
