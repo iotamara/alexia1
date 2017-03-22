@@ -99,7 +99,7 @@ const intentA = app.intent('intentA', 'add {myname:Person} to the list', (slots)
 // Or use built-in amazon intents. See: `examples/built-in-intents.js`
 const intentB = app.intent('intentB', 'yes', (slots) => {
     // Clear calendar for date `attrs.date` here
-    return 'The name has been added';
+    return `The name ${slots.myname} has been added`;
 });
 
 app.intent('intentC', 'no', () => {
