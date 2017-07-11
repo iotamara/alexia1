@@ -49,7 +49,7 @@ app.intent('LookUpIntent', 'I am {myname:Person}', (slots) => {
     if(slots.age) {
         return `${slots.myname} is a nice name`;
     } else {
-        return 'I did not hear what you said, please repeat';
+        return 'I did not hear what you said, please repeat ';
     }
 });
 
